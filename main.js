@@ -3,7 +3,7 @@ const targetY = 100; //created by anmo
 
 const elements = document.querySelectorAll('.item');
 
-function startDragging() {
+function startDragging() { //generates two random elements and drags them to targetX and targetY
     if (elements.length < 2) return;
 
     let firstrandom = Math.floor(Math.random() * elements.length);
@@ -27,12 +27,12 @@ function startDragging() {
     setTimeout(startDragging, 1000);
 }
 
-function simulateDrag(element, targetX, targetY) {
+function simulateDrag(element, targetX, targetY) { //drags and drops the items
     const rect = element.getBoundingClientRect();
     const startX = rect.left + rect.width / 2;
     const startY = rect.top + rect.height / 2;
 
-    element.dispatchEvent(new MouseEvent('mousedown', {
+    element.dispatchEvent(new MouseEvent('mousedown', { //sets the mousemovements
         bubbles: true,
         clientX: startX,
         clientY: startY
@@ -51,7 +51,7 @@ function simulateDrag(element, targetX, targetY) {
     }));
 }
 
-function clickClearButtonPeriodically() {
+function clickClearButtonPeriodically() { //sets an interval for deleting the objects to prevent lags
     const clearBtn = document.getElementsByClassName('clear')[0];
     const agreeBtn = document.getElementsByClassName('action-btn action-danger')[0];
     if(clearBtn){
@@ -66,4 +66,4 @@ function clickClearButtonPeriodically() {
 } 
 
 startDragging();
-clickClearButtonPeriodically();
+clickClearButtonPeriodically(); //after first paste delete function and paste another two times
