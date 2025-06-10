@@ -66,6 +66,4 @@ function clickClearButtonPeriodically() {
 } 
 
 startDragging();
-startDragging();
-startDragging();
 clickClearButtonPeriodically();
